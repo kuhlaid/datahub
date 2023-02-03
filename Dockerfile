@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi:8.1
+FROM ubi:8.1
 
 # install some of the basics our environment will need (seem to need `libssl-dev` and `libcurl4-openssl-dev` for one of the R packages)
 RUN yum --disableplugin=subscription-manager install -y git \
