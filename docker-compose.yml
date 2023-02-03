@@ -1,0 +1,14 @@
+version: '3.9'
+# This is the docker configuration script
+# Run `docker compose up` from a command line to start the build (this builds the containers but for some reason I am not able to login to the React frontend)
+
+services:
+    datahub:
+      # run the commands in the Dockerfile (found in this directory)
+      build: .
+      # we need tty set to true to keep the container running after the build
+      tty: true
+      # ---------- adding two of the following settings to see if this fixes the issue of the `CMD ["./datahub/docker/quickstart.sh"]` failing in the Dockerfile 
+      # stdin_open: true
+      volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
