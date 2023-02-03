@@ -4,7 +4,7 @@
 # ENV DEBIAN_FRONTEND noninteractive
 
 # try this for OpenShift
-FROM registry.access.redhat.com/ubi8/ubi:latest
+FROM alpine:3 AS base
 
 # install some of the basics our environment will need (seem to need `libssl-dev` and `libcurl4-openssl-dev` for one of the R packages)
 RUN apt-get update && apt-get install -y \
