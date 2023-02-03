@@ -2,12 +2,11 @@
 FROM debian:bullseye
 
 # install some of the basics our environment will need (seem to need `libssl-dev` and `libcurl4-openssl-dev` for one of the R packages)
-RUN rpm update && rpm install -y \
-    git \
-    docker \
-    docker-compose \
-    pip \
-    python3-venv
+RUN yum install -y git
+RUN yum install -y docker
+RUN yum install -y docker-compose
+RUN yum install -y pip
+RUN yum install -y python3-venv
 
 # trying to clone the code
 RUN git clone https://github.com/kuhlaid/datahub.git --branch master --single-branch
