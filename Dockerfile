@@ -1,8 +1,7 @@
-# this will get replaced on OpenShift so we need to use RHEL commands
-FROM centos:7
+FROM registry.access.redhat.com/ubi8/ubi:8.1
 
 # install some of the basics our environment will need (seem to need `libssl-dev` and `libcurl4-openssl-dev` for one of the R packages)
-RUN yum install -y git \
+RUN yum --disableplugin=subscription-manager install -y git \
     docker \
     docker-compose \
     pip \
