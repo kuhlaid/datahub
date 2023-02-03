@@ -1,12 +1,12 @@
 # this will get replaced on OpenShift so we need to use RHEL commands
-FROM debian:bullseye
+FROM centos:7
 
 # install some of the basics our environment will need (seem to need `libssl-dev` and `libcurl4-openssl-dev` for one of the R packages)
-RUN rpm -i git.rpm
-RUN rpm -i docker.rpm
-RUN rpm -i docker-compose.rpm
-RUN rpm -i pip.rpm
-RUN rpm -i python3-venv.rpm
+RUN yum install -y git \
+    docker \
+    docker-compose \
+    pip \
+    python3-venv
 
 # trying to clone the code
 RUN git clone https://github.com/kuhlaid/datahub.git --branch master --single-branch
