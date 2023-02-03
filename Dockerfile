@@ -1,4 +1,4 @@
-FROM ubi:8.1
+FROM openshift/ubi8-openjdk-11-runtime:1.10
 
 # install some of the basics our environment will need (seem to need `libssl-dev` and `libcurl4-openssl-dev` for one of the R packages)
 RUN yum --disableplugin=subscription-manager install -y git \
