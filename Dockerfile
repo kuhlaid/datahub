@@ -1,10 +1,8 @@
-# pull from https://hub.docker.com/_/debian/
-# we need to use Debian bullseye v11
+# this will get replaced on OpenShift so we need to use RHEL commands
 FROM debian:bullseye
-ENV DEBIAN_FRONTEND noninteractive
 
 # install some of the basics our environment will need (seem to need `libssl-dev` and `libcurl4-openssl-dev` for one of the R packages)
-RUN apt-get update && apt-get install -y \
+RUN rpm update && rpm install -y \
     git \
     docker \
     docker-compose \
